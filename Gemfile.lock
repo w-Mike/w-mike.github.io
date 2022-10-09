@@ -263,6 +263,7 @@ DEPENDENCIES
   github-pages (~> 227)
   http_parser.rb (~> 0.6.0)
   jekyll-feed (~> 0.12)
+  jemoji
   just-the-docs (= 0.4.0.rc2)
   tzinfo (~> 1.2)
   tzinfo-data
