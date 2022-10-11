@@ -29,7 +29,7 @@ markdown: kramdown
 
 # Build settings
 #theme: "just-the-docs"
-remote_theme: w-Mike/just-the-docs
+theme: just-the-docs
 plugins:
   - jekyll-feed
   - jemoji
