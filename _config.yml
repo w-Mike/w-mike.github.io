@@ -79,8 +79,8 @@ search:
   button: false
 
 aux_links:
-  "GitHub":
-    - "//github.com/w-Mike/w-mike.github.io"
+  "Just-the-docs":
+    - "//just-the-docs.github.io/just-the-docs/"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: false
@@ -94,3 +94,6 @@ callouts:
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
 last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
 
+# Back to top link
+back_to_top: true
+back_to_top_text: "Back to top"
