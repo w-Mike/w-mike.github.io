@@ -11,4 +11,4 @@ permalink: /
 
 this is my blog, and nothing.
 
-> 不要为了记笔记而记笔记，谢谢。
+> 
