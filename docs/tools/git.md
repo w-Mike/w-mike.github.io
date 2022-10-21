@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: git
 parent: tools
 last_modified_date: 2022年 10月 17日 星期一 14:17:31 CST
@@ -10,7 +10,7 @@ last_modified_date: 2022年 10月 17日 星期一 14:17:31 CST
 
 示例
 
-```gitignore
+```cpp
 bin/: 忽略当前路径下的bin文件夹，该文件夹下的所有内容都会被忽略，不忽略 bin 文件
 /bin: 忽略根目录下的bin文件
 /*.c: 忽略 cat.c，不忽略 build/cat.c
@@ -20,7 +20,4 @@ a/**/b: 忽略a/b, a/x/b, a/x/y/b等
 !/bin/run.sh: 不忽略 bin 目录下的 run.sh 文件
 *.log: 忽略所有 .log 文件
 config.php: 忽略当前路径的 config.php 文件
-
 ```
-
-
