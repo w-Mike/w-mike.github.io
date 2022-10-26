@@ -6,6 +6,8 @@ last_modified_date: 2022年 10月 17日 星期一 14:17:31 CST
 
 ---
 
+> 系统学习教材： 精通git
+
 ## gitignore
 
 示例

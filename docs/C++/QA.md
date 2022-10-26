@@ -1,8 +1,9 @@
 ---
 layout: default
-title: pointer
+title: Q&A
 parent: C++
 last_modified_date: 
+
 ---
 
-char**
+## inline
