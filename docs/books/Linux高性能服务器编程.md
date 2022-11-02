@@ -188,6 +188,76 @@ pipe函数    
 
 ## 第九章
 
+### 信号的基本用法，信号的种类，还有处理信号的方式。
+
+主要就是围绕，sigaction函数和结构体来使用的。
+
+sigaction函数原型：
+
+```cpp
+#include <signal.h>
+int sigaction(int sig, const struct sigaction *act, struct sigaction *oact);
+```
+
+`sig` : 信号类型: (SIGINT, SIGHUP......)
+
+`act` : 接收到信号的action
+
+`oact` : 该信号之前的action
+
+结构体 sigaction (不是源码，主要部分):
+
+```cpp
+struct sigaction
+{
+    _sighandler_t sa_handler;    
+    _sigset_t sa_mask;
+    int sa_flags;        
+}
+```
+
+`sa_handler` 为信号处理函数。
+
+其类型是 `_sighandler_t` ，原型为：
+
+```cpp
+typedef void (*__sighandle_t) (int );
+```
+
+`sa_mask`为进程的信号掩码，也就是在处理该信号时要屏蔽的信号种类。
+
+其类型是_sigset_t，叫信号集，原型:
+
+```cpp
+typedef struct{
+    unsigned long int __val[_SIGSET_NWORDS];
+}__sigset_t
+```
+
+该结构体中的 unsigned long int型数组的每个元素的每一位代表一种信号。
+
+有一系列的修改信号集的位操作函数：
+
+```cpp
+int sigemptyset(sigset_t *_set)                // 清空信号集
+int sigfillset(sigset_t *_set)                 //设置所有信号
+int sigaddset(sigset_t *_set, int _signo)
+int sigdelset(sigset_t *_set, int _signo)
+int sigismember(sigset_t *_set, int _signo)
+```
+
+`sa_flags` : 由于接受信号后会执行信号处理函数(sa_handler指定的),所以会打乱原先的程序执行过程，所以有几个sa_flags 来控制程序收到信号后的执行流程。
+
+> 具体也不是很清楚，还没用到，有些flag和系统调用中断有关。
+
+### 如何统一事件源（IO，信号，）
+
+利用管道 pipe    已知 pipefd[1] ====>>> pipefd[0]
+
+所以信号处理函数中通过 往pipefd[1] 中写入数据，就可以在 pipefd[0]中接收到，那么pipefd[0] 就会有可读事件的发生。
+
+所以可以利用IO复用，将pipefd[0] 注册到IO复用的文件描述符事件监测表中，就可以统一事件源了。
+
 ### 到底是如何使用select 来接收 oob数据的，结合第十章利用信号处理带外数据，和第五章的发送带外数据的客户端程序。
 
 代码9-1，通过第五章发送带外数据的客户端来进行测试：
@@ -196,11 +266,11 @@ pipe函数    
 
 第一次：
 
-![](../../docimgs/Linux高性能服务器编程_imgs/2022-10-25-19-33-57-image.png)
+<img title="" src="../../docimgs/Linux高性能服务器编程_imgs/2022-10-25-19-33-57-image.png" alt="" width="446">
 
 第二次：
 
-![](../../docimgs/Linux高性能服务器编程_imgs/2022-10-25-19-35-31-image.png)
+<img title="" src="../../docimgs/Linux高性能服务器编程_imgs/2022-10-25-19-35-31-image.png" alt="" width="516">
 
 客户端发送数据的顺序如下：
 “123” >>>normal
