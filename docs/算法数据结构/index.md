@@ -15,8 +15,6 @@ has_children: false
 
 后序，访问到三次输出。
 
-
-
 # 牛客
 
 ## 2022年 11月 02日 星期三 10:16:36 CST
@@ -61,7 +59,7 @@ has_children: false
    
    2. A <= B, numA的值不变，仍然满足左条件
 
-2.  C > A, 则经过左遍历后,A的值必为1，C的值 >= 1，即numC >= numA
+2. C > A, 则经过左遍历后,A的值必为1，C的值 >= 1，即numC >= numA
    
    - A > B, numA = numB+1, 此时可能不满足 numC >= numA,如果 numC < numA了，就会在下一轮循环中根据右遍历的方法，使得 numC = numA+1, 仍然会使numC > numA。
 
