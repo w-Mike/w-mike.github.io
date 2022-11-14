@@ -93,3 +93,27 @@ PS1变量即 prompt显示样式的设置：
 ```
 
 ## ubuntu 添加桌面图标
+
+
+
+
+
+# 工具
+
+## screenfetch
+
+查看内存信息等
+
+![](../../docimgs/linux_imgs/2022-11-03-16-33-36-image.png)1-08 19:00 至
+
+## 解压
+
+zip:
+
+[ubuntu下如何解压zip文件（超详细） - Chen洋 - 博客园](https://www.cnblogs.com/cy0628/p/13903990.html)
+
+tar:
+
+[tar 解压缩命令详解 - NothingLZ - 博客园](https://www.cnblogs.com/luozeng/p/8674529.html)
+
+    
